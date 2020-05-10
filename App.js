@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, SafeAreaView, TouchableWithoutFeedback, Keyboard } from 'react-native';
 
 const cpr={
   DOLLAR:0.014,
@@ -27,7 +27,8 @@ export default class App extends Component {
   }
   render(){
     return(
-      <View style={styles.container}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <SafeAreaView style={styles.container}>
         <View style={styles.screenv}>
         <View style={styles.resc}>
           <Text style={styles.resv}>
@@ -68,7 +69,8 @@ export default class App extends Component {
           </TouchableOpacity>
         </View>
         </View>
-      </View>
+      </SafeAreaView>
+    </TouchableWithoutFeedback>
     );
   }
 }
@@ -77,7 +79,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#535C68',
-    marginTop:35
+    marginTop:30
   },
   screenv:{
     flex:1
@@ -112,7 +114,7 @@ const styles = StyleSheet.create({
   cbc:{
     flexDirection:'row',
     flexWrap:'wrap',
-    marginTop:20,
+    marginTop:100,
     borderColor:'#c1c1c1',
     borderWidth:2
   },
